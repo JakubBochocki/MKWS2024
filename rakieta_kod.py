@@ -11,7 +11,7 @@ gas = ct.Solution('gri30.yaml')
 fuel_T = 293.0 #temperatura w zbiorniku paliwa - zmienna
 fuel_P = 40*ct.one_atm #cisnienie w zbiorniki paliwa - zmienne
 fuel_X = 'CH4:1.0'
-gas.TPX = fuel_T, fuel_P, fuel_X    #metan
+gas.TPX = fuel_T, fuel_P, fuel_X    
 fuel = ct.Reservoir(gas)
 fuel_mw = gas.mean_molecular_weight
 fuel_k = gas.cp/gas.cv
@@ -20,7 +20,7 @@ fuel_k = gas.cp/gas.cv
 oxidizer_T = 293.0 #temperatura w zbiorniku utleniacza - zmienna
 oxidizer_P = 40*ct.one_atm #cisnienie w zbiorniku utleniacza - zmienne
 oxidizier_X = 'O2:1.0'
-gas.TPX = oxidizer_T, oxidizer_P, oxidizier_X    #tlen
+gas.TPX = oxidizer_T, oxidizer_P, oxidizier_X    
 oxidizer = ct.Reservoir(gas)
 oxidizer_mw = gas.mean_molecular_weight
 oxidizer_k = gas.cp/gas.cv
@@ -30,7 +30,7 @@ gas.TPX = 300.0, ct.one_atm, 'H:1.0'
 igniter = ct.Reservoir(gas)
 
 #komora spalania
-gas.TPX = 300.0, 1.1*ct.one_atm, 'O2:1.0'   #komora spalania jest poczatkowo wypelniona tlenem
+gas.TPX = 300.0, 1.1*ct.one_atm, 'O2:1.0'   #komora spalania wypelniona tlenem
 combustion_chamber = ct.IdealGasReactor(gas)
 combustion_chamber.volume = 0.0005
 
